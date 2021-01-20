@@ -1,2 +1,4 @@
 .idea/
 airflow_files/
+logs/
+database/
