@@ -11,7 +11,7 @@ services:
       - POSTGRES_PASSWORD=airflow
       - PGDATA=/var/lib/postgresql/data/pgdata
     ports:
-      - 5432:5432
+      - 4444:5432
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - ./database/data:/var/lib/postgresql/data/pgdata
@@ -38,7 +38,7 @@ services:
       - .env
     image: apache/airflow:2.0.0-python3.8
     ports:
-      - 8080:8080
+      - 9999:8080
     volumes:
       - ./airflow_files/dags:/opt/airflow/dags
       - ./logs:/opt/airflow/logs
@@ -65,7 +65,7 @@ services:
     env_file:
       - .env
     ports:
-      - 5555:5555
+      - 6666:5555
     depends_on:
       - redis
     deploy:
