@@ -5,7 +5,7 @@ from airflow.contrib.operators.ssh_operator  import SSHOperator
 
 dag = DAG(dag_id='test_run_hadoop', 
           start_date=datetime(2021, 1, 1),
-          schedule_interval='0 * * * *')
+          schedule_interval=None)
 
 cmd_hadoop="""hadoop"""
 
@@ -19,7 +19,6 @@ hdfs_ls = SSHOperator(task_id = 'hdfs_ls',
                       command = cmd_hdfs_ls,
                       ssh_conn_id = 'hadoop@local',
                       retries = 1,
-                      pool = 'defult_pool',
                       dag = dag)
 
 start >> hdfs_ls >> end
