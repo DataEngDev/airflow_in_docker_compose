@@ -21,3 +21,7 @@ pip install --upgrade pip
 pip install pywebhdfs
 ```
 
+
+### Ref
+- official docker build example
+	- https://airflow.apache.org/docs/apache-airflow/stable/production-deployment.html
