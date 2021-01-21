@@ -5,8 +5,7 @@ from airflow.contrib.operators.ssh_operator  import SSHOperator
 
 dag = DAG(dag_id='test_run_hadoop', 
           start_date=datetime(2021, 1, 1),
-          schedule_interval='0 * * * *',
-          schedule_interval=None)
+          schedule_interval='0 * * * *')
 
 cmd_hadoop="""hadoop"""
 
