@@ -7,9 +7,10 @@ dag = DAG(dag_id='test_run_hadoop',
           start_date=datetime(2021, 1, 1),
           schedule_interval=None)
 
-cmd_hadoop="""hadoop"""
+cmd_hdfs_ls="""/usr/local/bin/hdfs dfs -ls"""
 
-cmd_hdfs_ls="""hdfs dfs -ls"""
+#cmd_hdfs_ls="""pwd && ls"""
+
 
 start = DummyOperator(task_id = 'start', dag=dag)
 
