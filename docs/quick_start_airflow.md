@@ -27,7 +27,7 @@ pip install pywebhdfs
 3. Update connection
 ```bash
 # step 1) login to postgre shell
-psql -u airflow 
+psql --u airflow 
 
 # step 2) select DB
 \c airflow
