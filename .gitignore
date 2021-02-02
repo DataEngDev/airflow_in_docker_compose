@@ -4,3 +4,4 @@ logs/
 database/
 airflow_files/.DS_Store
 airflow_files/dags/__pycache__/
+.creds.yml

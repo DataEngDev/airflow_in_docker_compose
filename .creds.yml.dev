@@ -1,0 +1,3 @@
+ssh_local:
+  user: <user>
+  password: <password>
