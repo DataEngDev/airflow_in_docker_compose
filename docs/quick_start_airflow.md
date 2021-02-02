@@ -5,10 +5,12 @@
 git clone https://github.com/DataEngDev/airflow_in_docker_compose.git
 cd airflow_in_docker_compose
 
-# v1
+### V1
 docker-compose -f docker-compose-2.0-with-celery-executor.yml up --buil
+# shut down the service
+docker-compose -f docker-compose-2.0-with-celery-executor.yml down
 
-# v2
+### V2
 docker-compose -f docker-compose-with-celery-executor.yml up --build
 # account, password : admin, admin
 ```
