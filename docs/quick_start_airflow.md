@@ -28,6 +28,7 @@ pip install pywebhdfs
 
 3. Update connection
 ```bash
+# via psql
 # step 1) login to postgre shell
 psql --u airflow 
 
@@ -49,6 +50,35 @@ airflow=# select * from connection;
 # http://localhost:8080/admin/connection/
 ``` 
 
+```python
+# via python
+import yaml
+import os
+import psycopg2
+
+LOCAL_SSH_USER = <LOCAL_SSH_USER>
+LOCAL_SSH_USER_PASSWORD = <LOCAL_SSH_USER_PASSWORD>
+
+
+def insert_local_ssh_conn(cursor):
+    sql = """
+        INSERT INTO public."connection"
+        (conn_id, conn_type, host, "schema", login, password, port, extra, is_encrypted, is_extra_encrypted)
+        VALUES('local_ssh_default', 'ssh', '192.168.0.178', '', '{LOCAL_SSH_USER}', '{LOCAL_SSH_USER_PASSWORD}', 22, '', false, false);
+        """.format(
+            LOCAL_SSH_USER=LOCAL_SSH_USER,
+            LOCAL_SSH_USER_PASSWORD=LOCAL_SSH_USER_PASSWORD
+            )
+    cursor.execute(sql)
+
+### connect to postgres instance in docker-compose via host=postgres
+conn_string = "host='postgres' dbname='airflow' user='airflow' password='airflow'"
+conn = psycopg2.connect(conn_string)
+conn.autocommit = True
+cursor = conn.cursor()
+print('Inserting local ssh conn')
+insert_local_ssh_conn(cursor)
+```
 
 ### Ref
 - official docker build example
