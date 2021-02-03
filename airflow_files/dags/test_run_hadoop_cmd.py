@@ -18,7 +18,7 @@ end = DummyOperator(task_id = 'end', dag=dag)
 
 hdfs_ls = SSHOperator(task_id = 'hdfs_ls',
                       command = cmd_hdfs_ls,
-                      ssh_conn_id = 'hadoop@local',
+                      ssh_conn_id = 'local_ssh_default',
                       retries = 1,
                       dag = dag)
 
