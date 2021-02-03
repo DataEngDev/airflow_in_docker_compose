@@ -11,7 +11,6 @@ cmd_hdfs_ls="""/usr/local/bin/hdfs dfs -ls"""
 
 #cmd_hdfs_ls="""pwd && ls"""
 
-
 start = DummyOperator(task_id = 'start', dag=dag)
 
 end = DummyOperator(task_id = 'end', dag=dag)
