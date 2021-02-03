@@ -15,7 +15,16 @@ docker-compose -f docker-compose-with-celery-executor.yml up --build
 # account, password : admin, admin
 ```
 
-2. Install py packages
+2. Init connection, variables..
+```bash
+docker ps -a
+
+# docker exec -it 27dd2bd742f9 /bin/sh -c "ls files"
+docker exec -it 27dd2bd742f9 /bin/sh -c "cd files && python script/insert_conn.py"
+docker exec -it 27dd2bd742f9 /bin/sh -c "cd files && python script/insert_variable.py"
+```
+
+3. Install py packages
 ```bash
 docker ps -a 
 
@@ -26,7 +35,7 @@ pip install --upgrade pip
 pip install pywebhdfs
 ```
 
-3. Update connection
+4. Update connection
 ```bash
 # via psql
 # step 1) login to postgre shell
